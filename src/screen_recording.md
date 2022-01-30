@@ -56,3 +56,27 @@
     </br>
 
 
+### Taking screenshot
+
+- Install
+
+    ```bash
+    doas pkg_add scrot
+    ```
+
+    </br>
+
+
+- Add it to `sxhkd`
+
+    ```bash
+    # Screenshot select area
+    alt + super + p
+        scrot --select '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Photos' &
+    
+    # Screenshot fullscreen
+    ctrl + super + p
+        scrot '%Y-%m-%d_%H-%M-%S_$wx$h.png' -e 'mv $f ~/Photos' &
+    ```
+
+    </br>
