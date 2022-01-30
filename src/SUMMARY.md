@@ -33,6 +33,8 @@
     - [Config `Xorg`](./config_xorg.md)
     - [Customize `xendom` and retina resolution](./customiz_xenodm.md)
     - [`dbus` and `Chromium`](./dbus_and_chromium.md)
+    - [Wubi Pinyin support](./wubi_pinyin_support.md)
+    - [Screen recording](./screen_recording.md)
 - [Development]()
     - [Install extra binary](./install_extra_binary.md)
     - [Neovim](./neovim.md)
