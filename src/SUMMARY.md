@@ -35,6 +35,7 @@
     - [`dbus` and `Chromium`](./dbus_and_chromium.md)
     - [Wubi Pinyin support](./wubi_pinyin_support.md)
     - [Screen recording](./screen_recording.md)
+    - [Notification](./notification.md)
 - [Development]()
     - [Install extra binary](./install_extra_binary.md)
     - [Neovim](./neovim.md)
