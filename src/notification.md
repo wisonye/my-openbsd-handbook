@@ -21,7 +21,7 @@
     </br>
 
 
-- Make it starts with `bspwm`
+- Add it to your window manager start script
 
     ```bash
     # Notification server

@@ -36,6 +36,7 @@
     - [Wubi Pinyin support](./wubi_pinyin_support.md)
     - [Screen recording](./screen_recording.md)
     - [Notification](./notification.md)
+    - [Picom compositor](./picom.md)
 - [Development]()
     - [Install extra binary](./install_extra_binary.md)
     - [Neovim](./neovim.md)
