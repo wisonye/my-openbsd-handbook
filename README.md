@@ -46,7 +46,7 @@ That's pretty easy, in the browser, click on the print icon on the right-top to 
 
 - My `bspwm` screenshot
 
-    ![dekstop.png](./src/images/bspwm_screenshot.png)
+    ![bspwm.png](./src/images/bspwm.png)
 
     </br>
 
