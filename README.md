@@ -4,11 +4,16 @@ The book is created by **`mdbook`**.
 
 - How to install **`mdBook`**
 
-    Install via cargo:
+    - Download from [release page](https://github.com/rust-lang/mdBook/releases)
 
-    ```bash
-    cargo install mdBook
-    ```
+    - Install via cargo:
+
+        ```bash
+        cargo install mdBook
+        ```
+
+        </br>
+
 
 - How to view the book in your browser
 
@@ -27,3 +32,16 @@ your browser.
 How to export the book into **`PDF`** format?
 
 That's pretty easy, in the browser, click on the print icon on the right-top to save as **`PDF`**.
+
+- My customized `xenodm` login screen
+
+    ![login-preview.png](./src/images/my-xenodm-screenshot.png)
+
+    </br>
+
+- My `bspwm` screenshot
+
+    ![dekstop.png](./src/images/bspwm_screenshot.png)
+
+    </br>
+
