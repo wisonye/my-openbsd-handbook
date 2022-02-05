@@ -16,8 +16,8 @@
     - Install the necessary dependencies
 
         `OpenBSD` comes with all default compliation tools in `comp70` set (if
-        you select it when installing OpenBSD), it includes the `gmake` which
-        you don't need to install.
+        you select it when installing OpenBSD), it includes the `gmake` and
+        `clang` and `clang++`which you don't need to install.
 
         ```bash
         #
@@ -26,57 +26,67 @@
         #
         ksh
 
-        #
-        # Choose `8.4` version for both `gcc` and `g++`
-        #
-        doas pkg_add gcc g++ llvm py3-llvm gas
+        doas pkg_add llvm py3-llvm gas
 
-        #
-        # After installation, there is NO `gcc` and `g++` binary exists!!!
-        # As it names `egcc` and `eg++`, that's why you need to set the
-        # env vars below before running `./configure`
-        #
-        Set the env vars
-        export CC=egcc
-        export CXX=eg++
+        # Set the env vars
+        export CC=clang
+        export CXX=clang++
         ```
 
         </br>
 
-    - Download the [LTS version](https://github.com/nodejs/node/releases) and build it
+    - <del>Download the [LTS version](https://github.com/nodejs/node/releases) and build it</del>
+
+        <del>
 
         ```
         mkdir ~/temp && cd ~/temp
         wget https://github.com/nodejs/node/archive/refs/tags/v14.18.3.tar.gz
         tar xzvf v14.18.3.tar.gz
+        cd node-14.18.3
+        ```
+
+        </del>
+
+        <del>Because the official node still not support `OpenBSD`, so this way will</del>
+        <del>fail at the end!!!</del>
+
+        </br>
+
+    - Use the work around build version
+
+        Here is the [building issue for OpenBSD](https://github.com/nodejs/node/issues/41224)
+
+        Then we need to git clone his `fix-openbsd-build` branch for compiling
+        `Node 16LTS` on `OpenBSD`:
+
+        ```bash
+        git clone --branch fix-openbsd-build https://github.com/localscope/node.git node-16-openbsd
+        cd node-16-openbsd
         ```
 
         </br>
+
 
     - Configure and compile
 
-        ```
-        cd node-14.18.3
-        ./configure
-        ```
+        Plz make sure `node-16-openbsd` is in the partition that contains the
+        `wxallowed` mount flag, otherwise, compile will fail!!!
 
-        If you see this error:
+        Usually, `/usr/local` partition already enabled `wxallowed`. If you're
+        compiling in `/home` partition and you will install `node` to `/usr/local`
+        , then you can enable the `wxallowed` to `/home` partition temporary by
+        running the following command:
 
         ```bash
-        # ERROR: Did not find a new enough assembler, install one or build
-        # with
-        #       --openssl-no-asm.
-        #        Please refer to BUILDING.md
+        doas mount -uo wxallowed /home
         ```
-
-        Then plz use `./configure --openssl-no-asm` instead
 
         </br>
 
-        Buil and install
-
         ```bash
-        gmake
+        ./configure
+        gmake -j4
         doas gmake install
         ```
 
@@ -86,7 +96,7 @@
 
         ```
         cd ..
-        rm -rf node-14.18.3
+        rm -rf node-16-openbsd
         ```
 
         </br>
@@ -96,6 +106,8 @@
     ```bash
     doas npm install -g typescript typescript-language-server
     ```
+
+    Global module will be installed to `/usr/local/lib/node_modules/`
 
     </br>
 
