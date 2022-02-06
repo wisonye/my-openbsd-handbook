@@ -41,7 +41,8 @@ The commas between list items are optional, so the following lists are the same:
 Lookups against a table are very fast and consume less memory and processor
 time than lists. For this reason, a table is ideal for holding a large group
 of addresses as the lookup time on a table holding 50,000 addresses is only
-slightly more than for one holding 50 addresses.
+slightly more than for one holding 50 addresses. Table only can hold addresses
+but not ports.
 
 - Define table
 
